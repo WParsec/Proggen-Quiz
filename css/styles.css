@@ -1,0 +1,121 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+}
+
+body {
+    background-color: #3c849a;
+    color: #184553;
+}
+
+ul {
+    list-style: none;
+}
+
+p {
+    margin-bottom: 8px;
+}
+
+h3 {
+    font-size: 2em;
+    margin-bottom: 1em;
+}
+
+section {
+    margin: 0 16px;
+}
+
+form {
+    margin-top: 40px;
+}
+
+label {
+    color: #d24d00;
+}
+
+label:hover {
+    cursor: pointer;
+}
+
+button {
+    display: block;
+    padding: 16px;
+    width: 160px;
+    background-color: #86c895;
+    border: 1px solid #467150;
+    box-shadow: 0 0 8px rgb(92, 92, 92);
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+#start-button {
+    margin-top: 40px;
+}
+
+.content-container {
+    width: 100%;
+    min-height: 400px;
+    max-width: 1020px;
+    background-color: #f7f6f6;
+    border-radius: 16px;
+    margin: 80px auto;
+    box-shadow: 0 0 20px rgb(92, 92, 92);
+    padding: 40px;
+    position: relative;
+}
+
+
+/* ---------------------------------------- Test start ----------------------------------------- */
+
+h4 {
+    font-size: 24px;
+    margin-bottom: 80px;
+}
+
+.buttons-wrap {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.question-number {
+    margin-bottom: 1em;
+    float: right;
+}
+
+.answer-option-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    position: relative;
+    width: 100%;
+    margin-bottom: 80px;
+}
+
+.options-label {
+    border: 1px solid #184553;
+    width: 100%;
+    height: 80px;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.radio-options {
+    display: none;
+}
+
+input[type="radio"]:checked+label {
+    border: 4px solid #86c895;
+}
+
+/* -------------------------------------- Toggle classes -------------------------------------- */
+
+.hide {
+    display: none;
+}
