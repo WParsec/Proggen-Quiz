@@ -39,6 +39,10 @@ label:hover {
     cursor: pointer;
 }
 
+button:disabled {
+    color: #3f7687;
+}
+
 button {
     display: block;
     padding: 16px;
