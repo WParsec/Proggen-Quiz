@@ -11,6 +11,7 @@ const contentContainer = document.querySelector('.content-container');
 
 
 // values to declare
+
 let questionCounter = 0;
 let currentQuestion;
 let answer;
@@ -33,10 +34,15 @@ checkbox.addEventListener("click", () => {
 
 // function when starting the test
 openingForm.addEventListener("submit", (event) => {
+    // prevent window from reloading
     event.preventDefault();
+    // hide first screen content
     innerContainer.classList.add('hide');
+    // bring counter to Question 1
     questionCounter++;
+    // run function for random selecting a question from pool and inserts a question to currentQuestion variable
     getQuestion();
+    // run function for building the page with the correct content
     buildPage();
 })
 
@@ -77,6 +83,7 @@ const buildPage = () => {
     // remove next button if question counter equals length of test
     const nextButton = document.querySelector('#next-button');
     const completeButton = document.querySelector('#complete');
+    // changing layout on the final question
     if (questionCounter === 3) {
         nextButton.classList.add('hide');
         completeButton.classList.remove('hide');
@@ -85,7 +92,7 @@ const buildPage = () => {
     // declaring options as all elements with class of radio-option
     let options = document.querySelectorAll('.radio-options');
 
-    // function to log the clicked option
+    // adding eventlistener to all options that if clicked logs the chosen response in answer variable
     options.forEach(option => {
         option.addEventListener('change', () => {
             answer = "";
@@ -98,11 +105,14 @@ const buildPage = () => {
 
     // function when clicking next button
     nextButton.addEventListener('click', () => {
+        // push answer variable into answerArray
         answersArray.push(answer);
         console.log(answersArray);
         questionCounter++;
+        // removes the question from the test array to prevent same question appearing twice
         const indexOfQuestion = test.indexOf(questionIndex);
         test.splice(indexOfQuestion, 1);
+        // run functions to build page with new question
         getQuestion();
         buildPage();
     })
