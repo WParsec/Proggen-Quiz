@@ -82,6 +82,7 @@ const buildPage = () => {
 
     // remove next button if question counter equals length of test
     const nextButton = document.querySelector('#next-button');
+    const backButton = document.querySelector('#back-button');
     const completeButton = document.querySelector('#complete');
     // changing layout on the final question
     if (questionCounter === 3) {
@@ -117,10 +118,11 @@ const buildPage = () => {
         buildPage();
     })
 
+    // function when clicking back button
+    backButton.addEventListener('click', () => {
+
+    })
+
 }
-
-
-
-
 
 
