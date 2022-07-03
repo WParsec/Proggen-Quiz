@@ -47,7 +47,7 @@ button {
     display: block;
     padding: 16px;
     width: 160px;
-    background-color: #86c895;
+    background-color: #8ccf9b;
     border: 1px solid #467150;
     box-shadow: 0 0 8px rgb(92, 92, 92);
     color: #184553;
@@ -85,6 +85,7 @@ h4 {
     display: flex;
     width: 100%;
     justify-content: space-evenly;
+    gap: 8px;
 }
 
 .question-number {

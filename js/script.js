@@ -1,3 +1,4 @@
+// importing variable test, containing objects with questions from questions.js
 import { test } from "/js/questions.js";
 
 
@@ -15,6 +16,7 @@ const contentContainer = document.querySelector('.content-container');
 // values to declare
 let questionCounter = 0;
 let currentQuestion;
+let answer;
 
 
 
@@ -43,7 +45,6 @@ openingForm.addEventListener("submit", (event) => {
 
 // function for loading questions
 const getQuestion = () => {
-    console.log(test.length);
 
     // get random question by assigning random index to test[index]
     const questionIndex = test[Math.floor(Math.random() * test.length)];
@@ -60,19 +61,39 @@ const buildPage = () => {
                                         <button id="back-button">Back</button>
                                         <button id="next-button">Next</button>
                                     </div>`;
+
+    // hide back button on first question                                
+    if (questionCounter <= 1) {
+        document.querySelector('#back-button').style.display = "none";
+    };
+
+
     const answersContainer = document.querySelector('.answer-option-container');
     for (let i = 0; i < currentQuestion.options.length; i++) {
         answersContainer.innerHTML += `
                                         <input type="radio" class="radio-options" id="option${i}" name="option">
-                                        <label for="option${i}" class="options-label">${currentQuestion.options[i]}</label>
+                                        <label for="option${i}" id="${i}" class="options-label">${currentQuestion.options[i]}</label>
                                         `
     }
+
+    // declaring options as all elements with class of radio-option
+    let options = document.querySelectorAll('.radio-options');
+
+    // function to log the clicked option
+    options.forEach(option => {
+        option.addEventListener('change', () => {
+            answer = "";
+            if (option.checked === true) {
+                answer = (option.id);
+                console.log(answer);
+            }
+        })
+    })
 }
 
-// mark the selected option 
-const optionLabel = document.querySelector('.options-label');
+// function when clicking next button
 
 
-window.addEventListener("click", () => {
-    console.dir(optionLabel);
-})
+
+
+
