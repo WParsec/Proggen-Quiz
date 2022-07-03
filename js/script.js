@@ -9,15 +9,13 @@ const innerContainer = document.querySelector('.inner-container');
 const openingForm = document.querySelector('#openingForm');
 const contentContainer = document.querySelector('.content-container');
 
-// starting test variables
-
-
 
 // values to declare
 let questionCounter = 0;
 let currentQuestion;
 let answer;
-
+let answersArray = [];
+let questionIndex;
 
 
 // disables start button once window is loaded until checkbox is checked
@@ -47,19 +45,20 @@ openingForm.addEventListener("submit", (event) => {
 const getQuestion = () => {
 
     // get random question by assigning random index to test[index]
-    const questionIndex = test[Math.floor(Math.random() * test.length)];
+    questionIndex = test[Math.floor(Math.random() * test.length)];
     currentQuestion = questionIndex;
     console.log(currentQuestion);
 }
 
 // function for building the page after opening form is submitted
 const buildPage = () => {
-    contentContainer.innerHTML = `  <div class="question-number"><p>Question ${questionCounter} of ${test.length}</p></div>
+    contentContainer.innerHTML = `  <div class="question-number"><p>Question ${questionCounter} of ${3}</p></div>
                                     <div class="question-wrap"><h4>${currentQuestion.question}</h4></div>
                                     <div class="answer-option-container"></div>
                                     <div class="buttons-wrap">
                                         <button id="back-button">Back</button>
                                         <button id="next-button">Next</button>
+                                        <button class="hide" id="complete">Complete test</button
                                     </div>`;
 
     // hide back button on first question                                
@@ -67,13 +66,20 @@ const buildPage = () => {
         document.querySelector('#back-button').style.display = "none";
     };
 
-
     const answersContainer = document.querySelector('.answer-option-container');
     for (let i = 0; i < currentQuestion.options.length; i++) {
         answersContainer.innerHTML += `
                                         <input type="radio" class="radio-options" id="option${i}" name="option">
                                         <label for="option${i}" id="${i}" class="options-label">${currentQuestion.options[i]}</label>
                                         `
+    }
+
+    // remove next button if question counter equals length of test
+    const nextButton = document.querySelector('#next-button');
+    const completeButton = document.querySelector('#complete');
+    if (questionCounter === 3) {
+        nextButton.classList.add('hide');
+        completeButton.classList.remove('hide');
     }
 
     // declaring options as all elements with class of radio-option
@@ -89,12 +95,20 @@ const buildPage = () => {
             }
         })
     })
+
+    // function when clicking next button
+    nextButton.addEventListener('click', () => {
+        answersArray.push(answer);
+        console.log(answersArray);
+        questionCounter++;
+        const indexOfQuestion = test.indexOf(questionIndex);
+        test.splice(indexOfQuestion, 1);
+        getQuestion();
+        buildPage();
+    })
+
 }
 
-// function when clicking next button
-        // put answer variable into an array
-        // questionCounter++
-        // run functions again to build new page
 
 
 
