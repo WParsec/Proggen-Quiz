@@ -20,12 +20,12 @@ let answer;
 
 
 
-// disables start button until checkbox is checked
+// disables start button once window is loaded until checkbox is checked
 window.addEventListener('load', () => {
     startButton.disabled = true;
 });
 
-// checkbox 
+// checkbox enables button
 checkbox.addEventListener("click", () => {
     if (!checkbox.checked) {
         startButton.disabled = true;
@@ -92,6 +92,9 @@ const buildPage = () => {
 }
 
 // function when clicking next button
+        // put answer variable into an array
+        // questionCounter++
+        // run functions again to build new page
 
 
 
