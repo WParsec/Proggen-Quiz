@@ -1,5 +1,5 @@
-// importing variable test, containing objects with questions from questions.js
-import { test } from "/js/questions.js";
+// importing the function createQuestionArray, containing objects with questions from questions.js
+import { createQuestionArray } from "/js/questions.js";
 
 
 // opening page variables
@@ -11,13 +11,21 @@ const contentContainer = document.querySelector('.content-container');
 
 
 // values to declare
-
 let questionCounter = 0;
 let currentQuestion;
 let answer;
 let answersArray = [];
 let questionIndex;
 
+
+// collecting and building the full randomly generated array, turning the function into an array
+let questionArray = [];
+questionArray.push(createQuestionArray())
+
+let completeQuestionArray = questionArray[0];
+console.log(completeQuestionArray);
+
+// ----------------- TEST START ------------------- //
 
 // disables start button once window is loaded until checkbox is checked
 window.addEventListener('load', () => {
@@ -51,9 +59,7 @@ openingForm.addEventListener("submit", (event) => {
 const getQuestion = () => {
 
     // get random question by assigning random index to test[index]
-    questionIndex = test[Math.floor(Math.random() * test.length)];
-    currentQuestion = questionIndex;
-    console.log(currentQuestion);
+    currentQuestion = completeQuestionArray[questionCounter - 1];
 }
 
 // function for building the page after opening form is submitted
@@ -110,9 +116,7 @@ const buildPage = () => {
         answersArray.push(answer);
         console.log(answersArray);
         questionCounter++;
-        // removes the question from the test array to prevent same question appearing twice
-        const indexOfQuestion = test.indexOf(questionIndex);
-        test.splice(indexOfQuestion, 1);
+
         // run functions to build page with new question
         getQuestion();
         buildPage();
@@ -120,7 +124,13 @@ const buildPage = () => {
 
     // function when clicking back button
     backButton.addEventListener('click', () => {
-
+        questionCounter--;
+        // removes the question from the answers array
+        const indexOfQuestion = completeQuestionArray.indexOf(questionCounter);
+        answersArray.splice(indexOfQuestion, 1);
+        getQuestion();
+        buildPage();
+        console.log(answersArray);
     })
 
 }
