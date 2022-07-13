@@ -4,54 +4,65 @@ export const questionArray = [
     {
         selectRandom: [
             {
-                question: 'This is level 1 question index 1',
-                options: ['None', 'One', 'I only fuck', 'I dont have cialis', 'Yes', 'Morgan Freeman']
+                question: href = "url('/static/oppgave1/1/iq_oppgave_1.jpg')",
+                options: [
+                    { img: href = "url('/static/oppgave1/1/iq_oppgave_1_a.jpg')"},
+			        { img: href = "url('/static/oppgave1/1/iq_oppgave_1_b.jpg')"},
+			        { img: href = "url('/static/oppgave1/1/iq_oppgave_1_c.jpg')"},
+			        { img: href = "url('/static/oppgave1/1/iq_oppgave_1_d.jpg')"},
+			        { img: href = "url('/static/oppgave1/1/iq_oppgave_1_e.jpg')"},
+			        { img: href = "url('/static/oppgave1/1/iq_oppgave_1_f.jpg')"}
+                ],
+                index: 1
             },
             {
-                question: 'This is level 1 question index 2',
-                options: ['Lasagna', 'Techno', 'Morgan Freeman', 'Cialis', 'Balls', 'Blue']
+                question: href = "url('/static/oppgave1/2/iq_oppgave_1.jpg')",
+                options: [
+                    { img: href = "url('/static/oppgave1/2/iq_oppgave_1_a.jpg')"},
+			        { img: href = "url('/static/oppgave1/2/iq_oppgave_1_b.jpg')"},
+			        { img: href = "url('/static/oppgave1/2/iq_oppgave_1_c.jpg')"},
+			        { img: href = "url('/static/oppgave1/2/iq_oppgave_1_d.jpg')"},
+			        { img: href = "url('/static/oppgave1/2/iq_oppgave_1_e.jpg')"},
+			        { img: href = "url('/static/oppgave1/2/iq_oppgave_1_f.jpg')"}
+                ],
+                index: 2
             },
             {
-                question: 'This is level 1 question index 3',
-                options: ['Ey', 'Jone', 'Fitfinn', 'Morgan Freeman', 'Tom', 'Nei']
-            }
-        ]
-    },
-
-    {
-        selectRandom: [
-            {
-                question: 'This is level 2 question index 1',
-                options: ['None', 'One', 'I only fuck', 'I dont have cialis', 'Yes', 'Morgan Freeman']
+                question: href = "url('/static/oppgave1/3/iq_oppgave_1.jpg')",
+                options: [
+                    { img: href = "url('/static/oppgave1/3/iq_oppgave_1_a.jpg')"},
+			        { img: href = "url('/static/oppgave1/3/iq_oppgave_1_b.jpg')"},
+			        { img: href = "url('/static/oppgave1/3/iq_oppgave_1_c.jpg')"},
+			        { img: href = "url('/static/oppgave1/3/iq_oppgave_1_d.jpg')"},
+			        { img: href = "url('/static/oppgave1/3/iq_oppgave_1_e.jpg')"},
+			        { img: href = "url('/static/oppgave1/3/iq_oppgave_1_f.jpg')"}
+                ],
+                index: 3
             },
             {
-                question: 'This is level 2 question index 2',
-                options: ['Lasagna', 'Techno', 'Morgan Freeman', 'Cialis', 'Balls', 'Blue']
+                question: href = "url('/static/oppgave1/3/iq_oppgave_1.jpg')",
+                options: [
+                    { img: href = "url('/static/oppgave1/4/iq_oppgave_1_a.jpg')"},
+			        { img: href = "url('/static/oppgave1/4/iq_oppgave_1_b.jpg')"},
+			        { img: href = "url('/static/oppgave1/4/iq_oppgave_1_c.jpg')"},
+			        { img: href = "url('/static/oppgave1/4/iq_oppgave_1_d.jpg')"},
+			        { img: href = "url('/static/oppgave1/4/iq_oppgave_1_e.jpg')"},
+			        { img: href = "url('/static/oppgave1/4/iq_oppgave_1_f.jpg')"}
+                ],
+                index: 4
             },
             {
-                question: 'This is level 2 question index 3',
-                options: ['Ey', 'Jone', 'Fitfinn', 'Morgan Freeman', 'Tom', 'Nei']
-            }
-        ]
-    },
-
-    {
-        selectRandom: [
-            {
-                question: 'This is level 3 question index 1',
-                options: ['None', 'One', 'I only fuck', 'I dont have cialis', 'Yes', 'Morgan Freeman']
+                question: href = "url('/static/oppgave1/5/iq_oppgave_1.jpg')",
+                options: [
+                    { img: href = "url('/static/oppgave1/5/iq_oppgave_1_a.jpg')"},
+			        { img: href = "url('/static/oppgave1/5/iq_oppgave_1_b.jpg')"},
+			        { img: href = "url('/static/oppgave1/5/iq_oppgave_1_c.jpg')"},
+			        { img: href = "url('/static/oppgave1/5/iq_oppgave_1_d.jpg')"},
+			        { img: href = "url('/static/oppgave1/5/iq_oppgave_1_e.jpg')"},
+			        { img: href = "url('/static/oppgave1/5/iq_oppgave_1_f.jpg')"}
+                ],
+                index: 5
             },
-            {
-                question: 'This is level 3 question index 2',
-                options: ['Lasagna', 'Techno', 'Morgan Freeman', 'Cialis', 'Balls', 'Blue']
-            },
-            {
-                question: 'This is level 3 question index 3',
-                options: ['Ey', 'Jone', 'Fitfinn', 'Morgan Freeman', 'Tom', 'Nei']
-            }
-        ]
-    }
-
 ]
 
 
@@ -68,7 +79,7 @@ let random;
 export function createQuestionArray() {
     for (let i = 0; i < questionArray.length; i++) {
         random = Math.floor(Math.random() * 3);
-        generatedArray.push(questionArray[i].selectRandom[random])
+        generatedArray.push({questionArray[i].selectRandom[random],random})
     }
     return generatedArray;
 }
