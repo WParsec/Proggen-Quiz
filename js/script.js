@@ -125,11 +125,11 @@ const buildPage = () => {
     // function when clicking back button
     backButton.addEventListener('click', () => {
         questionCounter--;
+        getQuestion();
+        buildPage();
         // removes the question from the answers array
         const indexOfQuestion = completeQuestionArray.indexOf(questionCounter);
         answersArray.splice(indexOfQuestion, 1);
-        getQuestion();
-        buildPage();
         console.log(answersArray);
     })
 
